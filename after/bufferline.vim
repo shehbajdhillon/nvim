@@ -11,8 +11,6 @@ require("bufferline").setup {
 }
 EOF
 
-nnoremap <Leader>d :w<CR> :bd<CR>
-
 nnoremap <silent><C-[> :BufferLineCyclePrev<CR>
 nnoremap <silent><C-]> :BufferLineCycleNext<CR>
 

@@ -6,6 +6,7 @@ let g:nvim_tree_indent_markers = 1
 let g:nvim_tree_tab_open = 1
 let g:nvim_tree_add_trailing = 1
 let g:nvim_tree_lsp_diagnostics = 1
+let g:nvim_tree_update_cwd = 1
 
 let g:nvim_tree_window_picker_exclude = {
     \   'filetype': [

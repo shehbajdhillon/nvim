@@ -29,7 +29,7 @@ set undofile
 set encoding=UTF-8
 set termguicolors
 
-":set mouse=n         " mouse on for normal mode
+:set mouse=n         " mouse on for normal mode
 :set listchars=tab:>·,trail:~,space:·
 :set list
 
