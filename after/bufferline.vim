@@ -1,5 +1,14 @@
 lua <<EOF
-require("bufferline").setup{}
+require("bufferline").setup {
+  options = {
+    offsets = {{
+          filetype = "NvimTree",
+          text="File Explorer",
+          highlight = "Directory",
+          text_align = "center"
+      }}
+    }
+}
 EOF
 
 nnoremap <Leader>d :w<CR> :bd<CR>
