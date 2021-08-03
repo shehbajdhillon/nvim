@@ -5,7 +5,7 @@
   * Install Lua and Ripgrep. Using apt: ```sudo apt install lua5.4``` ```sudo apt install ripgrep```
 
 * Install
-  * Clone the repo into .config folder in your $HOME folder (dnt knw abt macos or windows haha lmao ok bye)
+  * Clone the repo into .config folder in your $HOME folder
   * Open NeoVim. Do :PlugInstall and reopen NeoVim.
   
 * LSP/Autocomplete
