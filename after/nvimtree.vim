@@ -1,6 +1,5 @@
 let g:nvim_tree_side = 'left'
 let g:nvim_tree_auto_open = 1
-let g:nvim_tree_auto_close = 1
 let g:nvim_tree_follow = 1
 let g:nvim_tree_indent_markers = 1
 let g:nvim_tree_tab_open = 1

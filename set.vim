@@ -16,7 +16,6 @@ set colorcolumn=80   " highlight column
 set linebreak        " only break between words
 set smartindent      " indents according to the syntax/style of code
 set cmdheight=2      " height of the command line area
-set updatetime=50    " time in ms before plugins work after the last keystroke
 set guicursor=       " block cursor
 set scrolloff=8      " better scrolling experience
 set signcolumn=yes   " left side bar for linting/git/errors
@@ -29,7 +28,6 @@ set undofile
 set encoding=UTF-8
 set termguicolors
 
-:set mouse=n         " mouse on for normal mode
 :set listchars=tab:>·,trail:~,space:·
 :set list
 
