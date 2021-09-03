@@ -1,6 +1,5 @@
 "nvim completion settings
 "
-
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
@@ -46,6 +45,16 @@ nvim_lsp.texlab.setup {
 
 nvim_lsp.pyright.setup {
   on_attach = on_attach,
+}
+
+nvim_lsp.omnisharp.setup {
+  on_attach = on_attach,
+  cmd = {
+    "/home/shehbaj/omnisharp/run",
+    "--languageserver",
+    "--hostPID",
+    tostring(vim.fn.getpid())
+  },
 }
 
 EOF
