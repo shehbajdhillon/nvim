@@ -57,4 +57,8 @@ nvim_lsp.omnisharp.setup {
   },
 }
 
+nvim_lsp.terraformls.setup{
+  on_attach = on_attach,
+}
+
 EOF
