@@ -12,7 +12,6 @@ source ~/.config/nvim/set.vim
 
 source ~/.config/nvim/after/treesitter.vim
 source ~/.config/nvim/after/lspconfig.vim
-source ~/.config/nvim/after/lspsaga.vim
 source ~/.config/nvim/after/telescope.vim
 source ~/.config/nvim/after/bufferline.vim
 source ~/.config/nvim/after/eviline.vim
