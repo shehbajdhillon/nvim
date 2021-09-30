@@ -1,6 +1,7 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'gruvbox-community/gruvbox' " Gruvbox Colorscheme
+Plug 'arcticicestudio/nord-vim'
 Plug 'rstacruz/vim-closer' " Parenthesis Closer
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Syntax Highligthing
