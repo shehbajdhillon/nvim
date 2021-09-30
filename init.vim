@@ -16,4 +16,4 @@ source ~/.config/nvim/after/telescope.vim
 source ~/.config/nvim/after/bufferline.vim
 source ~/.config/nvim/after/eviline.vim
 source ~/.config/nvim/after/nvimtree.vim
-
+source ~/.config/nvim/after/devicons.vim

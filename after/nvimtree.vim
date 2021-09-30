@@ -1,11 +1,3 @@
-let g:nvim_tree_side = 'left'
-let g:nvim_tree_auto_open = 1
-let g:nvim_tree_follow = 1
-let g:nvim_tree_indent_markers = 1
-let g:nvim_tree_tab_open = 1
-let g:nvim_tree_add_trailing = 1
-let g:nvim_tree_lsp_diagnostics = 1
-let g:nvim_tree_update_cwd = 1
 
 let g:nvim_tree_window_picker_exclude = {
     \   'filetype': [
@@ -55,6 +47,24 @@ let g:nvim_tree_icons = {
     \     'error': "",
     \   }
     \ }
+
+lua << EOF
+require'nvim-tree'.setup {
+  open_on_setup = true,
+  open_on_tab = true,
+  update_cwd = true,
+  lsp_diagnostics = true,
+  update_focused_file = {
+    enable = true,
+    update_cwd = true,
+    ignore_list = {}
+  },
+  view = {
+    side = 'left',
+    auto_resize = true,
+  },
+}
+EOF
 
 nnoremap <Leader>t :NvimTreeToggle<CR>
 nnoremap <Leader>r :NvimTreeRefresh<CR>
