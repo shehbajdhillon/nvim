@@ -10,6 +10,9 @@ set shortmess+=c
 lua << EOF
 local nvim_lsp = require('lspconfig')
 local protocol = require('vim.lsp.protocol')
+local lspinstall = require('lspinstall')
+
+local coq = require('coq')
 
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -25,40 +28,25 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
     vim.api.nvim_command [[augroup END]]
   end
-
-  -- turn on auto complete for the attached server
-  require 'completion'.on_attach(client, bufnr)
-
 end
 
-nvim_lsp.tsserver.setup {
-  on_attach = on_attach,
-}
+local function setup_servers()
+  lspinstall.setup()
+  local servers = lspinstall.installed_servers()
+  for _, server in pairs(servers) do
+    nvim_lsp[server].setup{
+      coq.lsp_ensure_capabilities {
+        on_attach = on_attach
+      }
+    }
+  end
+end
 
-nvim_lsp.clangd.setup {
-  on_attach = on_attach,
-}
+setup_servers()
 
-nvim_lsp.texlab.setup {
-  on_attach = on_attach,
-}
-
-nvim_lsp.pyright.setup {
-  on_attach = on_attach,
-}
-
-nvim_lsp.omnisharp.setup {
-  on_attach = on_attach,
-  cmd = {
-    "/home/shehbaj/omnisharp/run",
-    "--languageserver",
-    "--hostPID",
-    tostring(vim.fn.getpid())
-  },
-}
-
-nvim_lsp.terraformls.setup{
-  on_attach = on_attach,
-}
+lspinstall.post_install_hook = function ()
+  setup_servers()
+  vim.cmd("bufdo e")
+end
 
 EOF
