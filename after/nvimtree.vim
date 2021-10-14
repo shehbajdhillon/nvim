@@ -72,9 +72,14 @@ require'nvim-tree'.setup {
     auto_resize = true,
   },
 }
+
+require'nvim-tree.view'.View.winopts.relativenumber = true
+require'nvim-tree.view'.View.winopts.number = true
+
 EOF
 
 nnoremap <Leader>t :NvimTreeToggle<CR>
 nnoremap <Leader>r :NvimTreeRefresh<CR>
 
 highlight NvimTreeFolderIcon guibg=blue
+

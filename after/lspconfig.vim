@@ -22,6 +22,8 @@ local on_attach = function(client, bufnr)
 
   buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
 
+  vim.cmd([[COQnow]])
+
 end
 
 local function setup_servers()
@@ -37,6 +39,8 @@ local function setup_servers()
 end
 
 setup_servers()
+
+vim.cmd('COQnow -s')
 
 lspinstall.post_install_hook = function ()
   setup_servers()
