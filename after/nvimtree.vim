@@ -53,7 +53,15 @@ require'nvim-tree'.setup {
   open_on_setup = true,
   open_on_tab = true,
   update_cwd = true,
-  lsp_diagnostics = true,
+  diagnostics = {
+    enable = false,
+    icons = {
+      hint = "",
+      info = "",
+      warning = "",
+      error = "",
+    }
+  },
   update_focused_file = {
     enable = true,
     update_cwd = true,
