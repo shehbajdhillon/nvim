@@ -12,7 +12,27 @@ local nvim_lsp = require('lspconfig')
 local protocol = require('vim.lsp.protocol')
 local lspinstall = require('lspinstall')
 
-local coq = require('coq')
+local cmp = require('cmp')
+
+cmp.setup({
+  snippet = {
+    expand = function(args)
+        vim.fn["vsnip#anonymous"](args.body)
+      end,
+  },
+  mapping = {
+    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.close(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+  },
+  sources = {
+    { name = 'nvim_lsp' },
+    { name = 'vsnip' },
+    { name = 'buffer' }
+  }
+})
 
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -22,8 +42,6 @@ local on_attach = function(client, bufnr)
 
   buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
 
-  vim.cmd([[COQnow]])
-
 end
 
 local function setup_servers()
@@ -31,16 +49,16 @@ local function setup_servers()
   local servers = lspinstall.installed_servers()
   for _, server in pairs(servers) do
     nvim_lsp[server].setup{
-      coq.lsp_ensure_capabilities {
-        on_attach = on_attach
-      }
+      on_attach = on_attach,
+      capabilities = require('cmp_nvim_lsp').update_capabilities(
+                        vim.lsp.protocol.make_client_capabilities()
+                      )
     }
   end
 end
 
 setup_servers()
 
-vim.cmd('COQnow -s')
 
 lspinstall.post_install_hook = function ()
   setup_servers()
