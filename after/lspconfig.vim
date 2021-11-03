@@ -3,6 +3,11 @@
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
+nnoremap <silent> <C-j> <Cmd>Lspsaga diagnostic_jump_next<CR>
+nnoremap <silent> K <Cmd>Lspsaga hover_doc<CR>
+inoremap <silent> <C-k> <Cmd>Lspsaga signature_help<CR>
+nnoremap <silent> gh <Cmd>Lspsaga lsp_finder<CR>
+
 set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list = ["exact", "substring", "fuzzy"]
 set shortmess+=c
@@ -11,8 +16,19 @@ lua << EOF
 local nvim_lsp = require('lspconfig')
 local protocol = require('vim.lsp.protocol')
 local lspinstall = require('lspinstall')
+local saga = require('lspsaga')
 
 local cmp = require('cmp')
+
+saga.init_lsp_saga {
+  error_sign = '',
+  warn_sign = '',
+  hint_sign = '',
+  infor_sign = '',
+  dianostic_header_icon = '   ',
+  code_action_icon = ' ',
+  border_style = "round",
+}
 
 cmp.setup({
   snippet = {

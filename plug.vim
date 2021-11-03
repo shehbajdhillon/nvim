@@ -6,6 +6,7 @@ Plug 'rstacruz/vim-closer' " Parenthesis Closer
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Syntax Highligthing
 Plug 'neovim/nvim-lspconfig' " Lanaguage server
+Plug 'glepnir/lspsaga.nvim'
 
 Plug 'nvim-lua/popup.nvim' " Telescope dependency
 Plug 'nvim-lua/plenary.nvim' " Telescope dependency
