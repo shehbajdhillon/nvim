@@ -10,6 +10,8 @@ set shortmess+=c
 lua << EOF
 local nvim_lsp = require('lspconfig')
 local protocol = require('vim.lsp.protocol')
+local lsp_installer = require('nvim-lsp-installer')
+
 
 local cmp = require('cmp')
 
@@ -49,5 +51,10 @@ local on_attach = function(client, bufnr)
   end
 
 end
+
+lsp_installer.on_server_ready(function(server)
+  local opts = {}
+  server:setup(opts)
+end)
 
 EOF
