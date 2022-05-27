@@ -7,11 +7,8 @@ set shiftwidth=2     " number of spaces with << and >>
 set expandtab        " tabs are spaces
 set rnu              " show relative numbering
 set nu               " show the line number the cursor is at
-set nohlsearch       " no highlighting after search is complete
 set wildmenu         " visual autocomplete for command menu
 set showmatch        " hightlight matching [{()}]
-set incsearch        " search as characters are entered
-set hlsearch         " highlight search matches
 set colorcolumn=80   " highlight column
 set linebreak        " only break between words
 set smartindent      " indents according to the syntax/style of code
@@ -19,6 +16,10 @@ set cmdheight=2      " height of the command line area
 set guicursor=       " block cursor
 set scrolloff=8      " better scrolling experience
 set signcolumn=yes   " left side bar for linting/git/errors
+
+set nohlsearch       " no highlighting after search is complete
+set hlsearch         " highlight search matches
+set incsearch        " search as characters are entered
 
 set noswapfile       " no swap files
 set nobackup         " no backups
@@ -34,8 +35,10 @@ set termguicolors
 " Latex autocompile with pdflatex
 nnoremap <Leader>p :w<CR> :!pdflatex %<CR><CR> :!latexmk -c %<CR><CR>
 
+" Set colorcolumn color
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
+" Gruvbox theme settings
 let g:gruvbox_contrast_dark = 'hard'
 colorscheme gruvbox
 set background=dark
