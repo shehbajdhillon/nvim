@@ -1,8 +1,6 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'gruvbox-community/gruvbox' " Gruvbox Colorscheme
-Plug 'arcticicestudio/nord-vim'
-Plug 'rstacruz/vim-closer' " Parenthesis Closer
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Syntax Highligthing
 Plug 'neovim/nvim-lspconfig' " Lanaguage server
@@ -13,11 +11,11 @@ Plug 'nvim-lua/plenary.nvim' " Telescope dependency
 Plug 'nvim-telescope/telescope.nvim' "Fuzzy finder
 
 Plug 'kyazdani42/nvim-web-devicons' " Colored icons
-Plug 'akinsho/nvim-bufferline.lua'
+Plug 'akinsho/nvim-bufferline.lua' " Manage buffers in tabs
 
-Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
+Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'} " Better looking status line
 
-Plug 'kyazdani42/nvim-tree.lua'
+Plug 'kyazdani42/nvim-tree.lua' " File explorer plugin
 
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
