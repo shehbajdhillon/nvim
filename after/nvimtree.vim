@@ -50,7 +50,7 @@ let g:nvim_tree_icons = {
 
 lua << EOF
 require'nvim-tree'.setup {
-  open_on_setup = true,
+  open_on_setup = false,
   open_on_tab = true,
   update_cwd = true,
   diagnostics = {
