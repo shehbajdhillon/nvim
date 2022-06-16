@@ -11,8 +11,8 @@ require("bufferline").setup {
 }
 EOF
 
-nnoremap <silent><C-[> :BufferLineMovePrev<CR>
-nnoremap <silent><C-]> :BufferLineMoveNext<CR>
+nnoremap <silent>b[ :BufferLineMovePrev<CR>
+nnoremap <silent>b] :BufferLineMoveNext<CR>
 
-nnoremap <silent>b[ :BufferLineCyclePrev<CR>
-nnoremap <silent>b] :BufferLineCycleNext<CR>
+nnoremap <silent>[[ :BufferLineCyclePrev<CR>
+nnoremap <silent>]] :BufferLineCycleNext<CR>
