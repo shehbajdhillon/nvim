@@ -1,6 +1,7 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'gruvbox-community/gruvbox' " Gruvbox Colorscheme
+Plug 'sbdchd/neoformat'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Syntax Highligthing
 Plug 'neovim/nvim-lspconfig' " Lanaguage server
