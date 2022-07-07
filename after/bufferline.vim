@@ -14,5 +14,5 @@ EOF
 nnoremap <silent>b[ :BufferLineMovePrev<CR>
 nnoremap <silent>b] :BufferLineMoveNext<CR>
 
-nnoremap <silent>t[ :bprevious<CR>
-nnoremap <silent>t] :bnext<CR>
+nnoremap <silent>t[ :BufferLineCyclePrev<CR>
+nnoremap <silent>t] :BufferLineCycleNext<CR>
