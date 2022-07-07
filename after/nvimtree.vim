@@ -19,8 +19,8 @@ require'nvim-tree'.setup {
     ignore_list = {}
   },
   view = {
-    side = 'left',
-    auto_resize = true,
+    side = 'right',
+    adaptive_size = true,
   },
   renderer = {
     special_files = {
