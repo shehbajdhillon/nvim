@@ -1,60 +1,11 @@
-
-let g:nvim_tree_window_picker_exclude = {
-    \   'filetype': [
-    \     'packer',
-    \     'qf'
-    \   ],
-    \   'buftype': [
-    \     'terminal'
-    \   ]
-    \ }
-
-let g:nvim_tree_special_files = { 'README.md': 1, 'Makefile': 1, 'MAKEFILE': 1 }
-
-let g:nvim_tree_show_icons = {
-    \ 'git': 1,
-    \ 'folders': 0,
-    \ 'files': 0,
-    \ 'folder_arrows': 0,
-    \ }
-
-let g:nvim_tree_icons = {
-    \ 'default': '',
-    \ 'symlink': '',
-    \ 'git': {
-    \   'unstaged': "✗",
-    \   'staged': "✓",
-    \   'unmerged': "",
-    \   'renamed': "➜",
-    \   'untracked': "★",
-    \   'deleted': "",
-    \   'ignored': "◌"
-    \   },
-    \ 'folder': {
-    \   'arrow_open': "",
-    \   'arrow_closed': "",
-    \   'default': "",
-    \   'open': "",
-    \   'empty': "",
-    \   'empty_open': "",
-    \   'symlink': "",
-    \   'symlink_open': "",
-    \   },
-    \   'lsp': {
-    \     'hint': "",
-    \     'info': "",
-    \     'warning': "",
-    \     'error': "",
-    \   }
-    \ }
-
 lua << EOF
+
 require'nvim-tree'.setup {
   open_on_setup = false,
   open_on_tab = true,
   update_cwd = true,
   diagnostics = {
-    enable = false,
+    enable = true,
     icons = {
       hint = "",
       info = "",
@@ -71,6 +22,54 @@ require'nvim-tree'.setup {
     side = 'left',
     auto_resize = true,
   },
+  renderer = {
+    special_files = {
+      'README.md',
+      'Makefile',
+      'MAKEFILE',
+    },
+    icons = {
+      show = {
+        git = true,
+        folder = true,
+        file = true,
+        folder_arrow = false,
+      },
+      glyphs = {
+        default = "",
+        symlink = "",
+        git = {
+          unstaged = "✗",
+          staged = "✓",
+          unmerged = "",
+          renamed = "➜",
+          untracked = "★",
+          deleted = "",
+          ignored = "◌",
+        },
+       folder = {
+         arrow_open = "",
+         arrow_closed = "",
+         default = "",
+         open = "",
+         empty = "",
+         empty_open = "",
+         symlink = "",
+         symlink_open = "",
+         },
+      },
+    },
+  },
+  actions = {
+    open_file = {
+      window_picker = {
+        exclude = {
+          filetype = { 'packer', 'qf' },
+          buftype = { 'terminal' }
+        },
+      },
+    },
+  },
 }
 
 require'nvim-tree.view'.View.winopts.relativenumber = true
@@ -80,6 +79,4 @@ EOF
 
 nnoremap <Leader>t :NvimTreeToggle<CR>
 nnoremap <Leader>r :NvimTreeRefresh<CR>
-
-highlight NvimTreeFolderIcon guibg=blue
 
