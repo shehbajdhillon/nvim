@@ -28,6 +28,7 @@ set undofile
 
 set encoding=UTF-8
 set termguicolors
+set mouse=a          " to prevent scrolling in the terminal buffer (esp in WSL)
 
 :set listchars=tab:>·,trail:~,space:·
 :set list
